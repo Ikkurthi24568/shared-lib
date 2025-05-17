@@ -2,22 +2,30 @@
 //import package
 import com.i27academy.builds
 
-Calculator cal = new Calculator(this)
+def call(Map pipelineparams){
+
+    Calculator cal = new Calculator(this)
 
 pipeline{
     agent any
+    environment{
+        APP_NAME = {pipelineparams.}
+    }
     stages{
-        stage('AdditionStage')
-        {
+        stage('AdditionStage'){
             steps{
                 echo " adding two varible"
                 println Calculator.add(2,3)
+                echo " Microservice name :${APP_NAME} "
             }
-        }
-        stage('MultiplicationStage'){
-                echo " MultiplicationStage two varible"
-                println Calculator.multiply(2,3)
+          }
+          stage('secondStage'){
+            steps{
+                echo "second stage"
             }
-
+          }
+       }
     }
+
 }
+

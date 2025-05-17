@@ -1,6 +1,6 @@
 //pipeline + groovy
 //import package
-import com.i27academy.builds
+import com.i27academy.builds.Calculator
 
 def call(Map pipelineparams){
 

@@ -4,7 +4,7 @@ import com.i27academy.builds.Calculator
 
 def call(Map pipelineparams){
 
-    Calculator cal = new Calculator(this)
+    Calculator calculator = new Calculator(this)
 
 pipeline{
     agent any
@@ -15,7 +15,7 @@ pipeline{
         stage('AdditionStage'){
             steps{
                 echo " adding two varible"
-                println cal.add(2,3)
+                println calculator.add(2,3)
                 echo " Microservice name :${APP_NAME} "
             }
           }

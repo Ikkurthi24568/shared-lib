@@ -1,6 +1,6 @@
 //pipeline + groovy
 //import package
-import com.i27academy.builds
+import com.i27academy.builds.Calculator
 
 def call(Map pipelineparams){
 
@@ -9,7 +9,7 @@ def call(Map pipelineparams){
 pipeline{
     agent any
     environment{
-        APP_NAME = {pipelineparams.}
+        APP_NAME = ${pipelineparams.appName}
     }
     stages{
         stage('AdditionStage'){

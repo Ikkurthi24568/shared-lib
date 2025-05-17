@@ -1,24 +1,31 @@
-package.com.i27academy.builds;
-//all the methods
-class Calculator{
-    def jenkins
+//pipeline + groovy
+//import package
+import com.i27academy.builds
 
+def call(Map pipelineparams){
 
-Calculator(jenkins){
-    this.jenkins = jenkins
+    Calculator cal = new Calculator(this)
+
+pipeline{
+    agent any
+    environment{
+        APP_NAME = {pipelineparams.}
+    }
+    stages{
+        stage('AdditionStage'){
+            steps{
+                echo " adding two varible"
+                println Calculator.add(2,3)
+                echo " Microservice name :${APP_NAME} "
+            }
+          }
+          stage('secondStage'){
+            steps{
+                echo "second stage"
+            }
+          }
+       }
+    }
+
 }
 
-
-//Adition Method
-def add(firstNumber,secondNumber){
-    return firstNumber + secondNumber
-}
-
-// Multiplication Method
-def multiply(firstNumber,secondNumber){
-    return firstNumber * secondNumber
-}
-
-//Sub Method
-
-}

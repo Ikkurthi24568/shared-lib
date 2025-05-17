@@ -9,14 +9,16 @@ def call(Map pipelineparams){
 pipeline{
     agent any
     environment{
-        APP_NAME = {pipelineparams.appName}
+        APP_NAME ="${pipelineparams.appName}"
     }
     stages{
         stage('AdditionStage'){
             steps{
+                script{
                 echo " adding two varible"
                 println calculator.add(2,3)
                 echo " Microservice name :${APP_NAME} "
+            }
             }
           }
           stage('secondStage'){

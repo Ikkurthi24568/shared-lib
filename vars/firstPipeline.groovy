@@ -15,7 +15,7 @@ pipeline{
         stage('AdditionStage'){
             steps{
                 echo " adding two varible"
-                println Calculator.add(2,3)
+                println cal.add(2,3)
                 echo " Microservice name :${APP_NAME} "
             }
           }
